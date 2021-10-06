@@ -8,7 +8,11 @@ $app->config('debug', true);
 
 $app->get('/', function() {
     
-	echo "OK";
+	$sql = new Hcode\DB\Sql(); //CAMINHO DO NAMESPACE
+
+	$results = $sql->select("SELECT * FROM tb_users");
+
+	echo json_encode($results);
 
 });
 
