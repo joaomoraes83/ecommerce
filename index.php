@@ -3,18 +3,24 @@ session_start();
 require_once("vendor/autoload.php");
 
 use \Slim\Slim;
-//use \Hcode\Page;
+use \Hcode\Page;
+use \Hcode\Model\Product;
 
 $app = new Slim();
 
 $app->config('debug', true);
 
-/*$app->get('/',function(){
+$app->get('/', function() {
+
+    $products = Product::listAll();
+
     $page = new Page();
 
-    $page->setTpl("index");
-});*/
+    $page->setTpl("index", [
+        'products'=>Product::checkList($products)
+    ]);
 
+});
 require_once("functions.php");
 require_once("site.php");
 require_once("admin.php");
