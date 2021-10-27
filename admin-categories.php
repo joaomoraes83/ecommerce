@@ -178,3 +178,4 @@ $app->get("/admin/categories/:idcategory/products/:idproduct/remove", function($
 });
 
  ?>
+© 2021 GitHub, Inc.
